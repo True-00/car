@@ -1,0 +1,26 @@
+.filters {
+    background: #f5f5f5;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+}
+
+.filters input[type="text"],
+.filters input[type="number"] {
+    padding: 8px;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+}
+
+.filters button {
+    padding: 8px 15px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.filters .reset {
+    margin-left: 10px;
+    color: #666;
+}

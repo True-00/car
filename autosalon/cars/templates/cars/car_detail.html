@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  {% extends 'base.html' %}
+
+{% block title %}{{ car.brand }} {{ car.model }}{% endblock %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-md-6">
+      <h1>{{ car.brand }} {{ car.model }}</h1>
+      <p><strong>Производитель:</strong> {{ car.manufacturer }}</p>
+      <p><strong>Цена:</strong> {{ car.price }} руб.</p>
+      <p><strong>Год выпуска:</strong> {{ car.production_year }}</p>
+      <p><strong>Цвет:</strong> {{ car.color }}</p>
+      <p><strong>Тип кузова:</strong> {{ car.body_type }}</p>
+      <p><strong>Двигатель:</strong> {{ car.engine_volume }} л / {{ car.power }} л.с.</p>
+      <p><strong>Коробка передач:</strong> {{ car.get_transmission_display }}</p>
+      <p><strong>VIN:</strong> {{ car.vin }}</p>
+      <p><strong>Добавлен:</strong> {{ car.add_date|date:"d.m.Y" }}</p>
+    </div>
+    <div class="col-md-6">
+      <!-- Здесь можно добавить изображение автомобиля -->
+      <div class="placeholder-img" style="height: 300px; background: #eee; display: flex; align-items: center; justify-content: center;">
+        <span>Изображение автомобиля</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-4">
+    <a href="{% url 'car-list' %}" class="btn btn-secondary">Назад к списку</a>
+  </div>
+{% endblock %}
+</body>
+</html>

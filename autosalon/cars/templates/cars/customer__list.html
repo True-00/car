@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  {% extends 'base.html' %}
+
+{% block title %}Клиенты{% endblock %}
+
+{% block content %}
+  <h1 class="mb-4">Клиенты</h1>
+  
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ФИО</th>
+        <th>Телефон</th>
+        <th>Email</th>
+        <th>Дата регистрации</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for customer in customers %}
+      <tr>
+        <td>{{ customer.full_name }}</td>
+        <td>{{ customer.phone }}</td>
+        <td>{{ customer.email|default:"-" }}</td>
+        <td>{{ customer.registration_date|date:"d.m.Y" }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
+</body>
+</html>
